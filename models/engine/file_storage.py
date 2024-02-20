@@ -11,7 +11,7 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if not cls:
-            return self.__objects
+            return FileStorage.__objects
         temp = {}
         for k, val in FileStorage.__objects.items():
             if k.split('.')[0] == cls.__name__:
@@ -42,11 +42,11 @@ class FileStorage:
         from models.amenity import Amenity
         from models.review import Review
 
-        classes = {
-                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City, 'Amenity': Amenity,
-                    'Review': Review
-                  }
+        # classes = {
+        #             'BaseModel': BaseModel, 'User': User, 'Place': Place,
+        #             'State': State, 'City': City, 'Amenity': Amenity,
+        #             'Review': Review
+        #           }
         try:
             temp = {}
             with open(FileStorage.__file_path, 'r') as f:
@@ -57,12 +57,12 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        "delete object from storage"
+        "method to delete object from storage"
         if not obj:
             return
         key = '{}.{}'.format(obj.__class__.__name__, obj.id)
         if key in FileStorage.__objects:
             del FileStorage.__objects[key]
-            # self.save()
+            self.save()
         else:
             return
