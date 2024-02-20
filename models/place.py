@@ -2,6 +2,12 @@
 """ Place Module for HBNB project """
 from models.base_model import *
 
+relationship = Table('place_amenity', Base.metadata,
+                     Column('place_id', String(60),
+                            ForeignKey('places.id'), nullable=False),
+                     Column('amenity_id', String(60),
+                            ForeignKey('amenities.id'), nullable=False))
+
 
 class Place(BaseModel, Base):
     """ A place to stay """
@@ -17,4 +23,5 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     reviews = relationship('Review', backref='place', cascade='delete')
+    amenities = relationship('Amenity', secondary=relationship, viewonly=Flase)
     amenity_ids = []
