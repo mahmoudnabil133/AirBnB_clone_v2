@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import *
-# from models import HBNB_TYPE_STORAGE
-# from models.review import Review
+
 
 place_amenity = Table('place_amenity', Base.metadata,
                      Column('place_id', String(60),
@@ -32,13 +31,3 @@ class Place(BaseModel, Base):
        amenities = relationship('Amenity', secondary='place_amenity', viewonly=False,
                                    backref='place_amenities')
        amenity_ids = []
-       # if HBNB_TYPE_STORAGE == 'db':
-       #        @property
-       #        def reviews(self):
-       #               from models import storage
-       #               dec = storage.all(Review)
-       #               out = []
-       #               for k, review in dec:
-       #                      if review.place_id == self.id:
-       #                             out.append(review)
-       #               return out
