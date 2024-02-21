@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """This module defines a class to manage file storage for hbnb clone"""
 import json
 
@@ -42,6 +42,11 @@ class FileStorage:
         from models.amenity import Amenity
         from models.review import Review
 
+        # classes = {
+        #             'BaseModel': BaseModel, 'User': User, 'Place': Place,
+        #             'State': State, 'City': City, 'Amenity': Amenity,
+        #             'Review': Review
+        #           }
         try:
             temp = {}
             with open(FileStorage.__file_path, 'r') as f:
