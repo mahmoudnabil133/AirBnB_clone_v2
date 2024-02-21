@@ -36,8 +36,11 @@ class DBStorage:
     def all(self, cls=None):
         "return all inctances for class"
         if not cls:
-            rows = self.__session.query(
-                User, Place, City, State, Amenity, Review).all()
+            rows = []
+            class_lists = [User, Place, City, State, Amenity, Review]
+            for cls in class_lists:
+                temp = self.__session.query(cls).all()
+                rows += temp
         else:
             rows = self.__session.query(cls).all()
         dec = {}
