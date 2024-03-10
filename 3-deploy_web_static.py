@@ -63,6 +63,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    "full deployment"
     arch_path = do_pack()
     if not arch_path:
         return False
