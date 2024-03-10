@@ -18,6 +18,9 @@ def do_pack():
 
     arch_name = "web_static_{}.tgz".format(date)
     res = local("sudo tar -cvzf versions/{} web_static".format(arch_name))
+    size = os.path.getsize("versions/{}".format(arch_name))
+
+    print("web_static packed: versions/{} -> {}Bytes".format(arch_name, size))
 
     if res.succeeded:
         return 'versions/{}'.format(arch_name)
