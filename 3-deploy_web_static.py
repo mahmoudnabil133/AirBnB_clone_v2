@@ -25,7 +25,6 @@ def do_pack():
         return 'versions/{}'.format(arch_name)
     else:
         return False
-    
 
 
 def do_deploy(archive_path):
@@ -63,6 +62,7 @@ def do_deploy(archive_path):
 
     except Exception as e:
         return False
+
 
 def deploy():
     arch_path = do_pack()
