@@ -41,9 +41,12 @@ def do_deploy(archive_path):
         return False
 
 
+
 def deploy():
-    "full deployment"
-    archive_path = do_pack()
-    if not archive_path:
+    """ creates and distributes an archive to your web servers
+    """
+    new_archive_path = do_pack()
+    if os.exists(new_archive_path) is False:
         return False
-    return do_deploy(archive_path)
+    result = do_deploy(new_archive_path)
+    return result
