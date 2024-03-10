@@ -17,7 +17,3 @@ def do_pack():
     res = local("sudo tar -cvzf versions/{} web_static".format(arch_name))
     size = os.path.getsize("versions/{}".format(arch_name))
     print("web_static packed: versions/{} -> {}Bytes".format(arch_name, size))
-
-
-if __name__ == "__main__":
-    do_pack()
