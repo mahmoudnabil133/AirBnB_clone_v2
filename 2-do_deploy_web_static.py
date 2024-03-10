@@ -27,9 +27,11 @@ def do_deploy(archive_path):
             return False
         if run("sudo rm -f /tmp/{}".format(filename)).failed:
             return False
-        if run("sudo rm -rf /data/web_static/releases/web_static_20240310095451/images/*").failed:
+        imgs = '/data/web_static/releases/web_static_20240310095451/images/*'
+        stys = '/data/web_static/releases/web_static_20240310095451/styles/*'
+        if run("sudo rm -rf {}".format(imgs)).failed:
             return False
-        if run("sudo rm -rf /data/web_static/releases/web_static_20240310095451/styles/*").failed:
+        if run("sudo rm -rf {}".format(stys)).failed:
             return False
         if run("sudo mv -f {}/web_static/* {}".format(no_tgz, no_tgz)).failed:
             return False
