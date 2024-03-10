@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 "compress web_stack locally"
-
-
 import tarfile
 from fabric.api import local
 from datetime import datetime
