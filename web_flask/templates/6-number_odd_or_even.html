@@ -1,13 +1,20 @@
+{% if number %2 == 0 %}
 <!DOCTYPE html>
 <HTML lang="en">
-    <HEAD>
-        <TITLE>HBNB</TITLE>
-    </HEAD>
-    <BODY>
-        {% if number %2 == 0 %}
-            <H1>Number: {{ number }} is even</H1>
-        {% else %}
-            <H1>Number: {{ number }} odd</H1>
-        {% endif %}
-    </BODY>
+<HEAD>
+    <TITLE>HBNB</TITLE>
+</HEAD>
+<BODy>
+    <H1>Number: {{ number }} is even</H1>
+</BODy>
+{% else %}
+<!DOCTYPE html>
+<HTML lang="en">
+<HEAD>
+    <TITLE>HBNB</TITLE>
+</HEAD>
+<BODy>
+    <H1>Number: {{ number }} is odd</H1>
+</BODy>
 </HTML>
+{% endif %}
