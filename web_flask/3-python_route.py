@@ -23,7 +23,7 @@ def desplay(text):
 
 @app.route('/python/<text>', strict_slashes=False)
 @app.route('/python', strict_slashes=False)
-def python(text):
+def python(text=None):
     if not text:
         new_text = 'is cool'
     else:
