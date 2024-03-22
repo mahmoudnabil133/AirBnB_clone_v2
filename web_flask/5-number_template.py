@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 "intro to flask"
 
 from flask import Flask, abort, render_template
