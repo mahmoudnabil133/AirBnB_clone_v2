@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 "intro to flask"
 
 from flask import Flask
@@ -23,7 +23,7 @@ def desplay(text):
 
 @app.route('/python/<text>', strict_slashes=False)
 @app.route('/python', strict_slashes=False)
-def python(text=None):
+def python(text):
     if not text:
         new_text = 'is cool'
     else:
