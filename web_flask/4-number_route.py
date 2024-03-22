@@ -33,7 +33,7 @@ def python(text=None):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    return f'{n} is a number'
+    return '{:d} is a number'.format(n)
 
 
 if __name__ == '__main__':
