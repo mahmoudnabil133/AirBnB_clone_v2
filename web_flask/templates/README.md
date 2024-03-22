@@ -1,1 +1,0 @@
-# templates of the website
