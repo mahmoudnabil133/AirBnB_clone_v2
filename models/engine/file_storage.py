@@ -66,3 +66,6 @@ class FileStorage:
             self.save()
         else:
             return
+    def close(self):
+        "reload"
+        self.reload()
