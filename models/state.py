@@ -3,13 +3,15 @@
 from models import *
 
 type = getenv('HBNB_TYPE_STORAGE')
+
+
 class State(BaseModel, Base):
     """ State class """
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)
     cities = relationship(
         "City", backref="state", cascade='all, delete-orphan')
-    
+
     if type != "db":
         @property
         def cities(self):

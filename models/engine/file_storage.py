@@ -66,7 +66,7 @@ class FileStorage:
             self.save()
         else:
             return
-    
+
     def close(self):
         " doc for func"
         self.reload()
