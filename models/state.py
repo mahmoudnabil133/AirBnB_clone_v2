@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
-from models.base_model import *
 from models import *
 
+type = getenv('HBNB_TYPE_STORAGE')
 class State(BaseModel, Base):
     """ State class """
     __tablename__ = 'states'
@@ -10,7 +10,7 @@ class State(BaseModel, Base):
     cities = relationship(
         "City", backref="state", cascade='all, delete-orphan')
     
-    if HBNB_TYPE_STORAGE != "db":
+    if type != "db":
         @property
         def cities(self):
             """getter for list of city instances related to the state"""
