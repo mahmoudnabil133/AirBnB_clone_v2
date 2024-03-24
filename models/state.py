@@ -13,6 +13,7 @@ class State(BaseModel, Base):
     if HBNB_TYPE_STORAGE != 'db':
         @property
         def cities():
+            "function"
             all_cities = []
             cts = storage.all(City)
             for k, c in cts:
