@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"doc for file"
 from flask import Flask, render_template
 from models import *
 from models import storage
@@ -10,10 +11,7 @@ app = Flask(__name__)
 @app.route('/states_list', strict_slashes=False)
 def states():
     "return states"
-    states = []
-    states_dec = storage.all(State)
-    for st in states_dec.values():
-        states.append(st)
+    states = storage.all(State).values()
     sorted_states = sorted(states, key=lambda x:x.name)
     return render_template('7-states_list.html', states=sorted_states)
 
@@ -25,4 +23,5 @@ def close(exception):
 
 
 if __name__ == '__main__':
+    "main doc"
     app.run(debug=True, port='5000', host='0.0.0.0')
