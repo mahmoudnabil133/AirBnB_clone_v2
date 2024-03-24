@@ -10,13 +10,13 @@ class State(BaseModel, Base):
     cities = relationship(
         "City", backref="state", cascade='all, delete-orphan')
     
-    if HBNB_TYPE_STORAGE != 'db':
+    if HBNB_TYPE_STORAGE != "db":
         @property
         def cities(self):
-            "function"
-            all_cities = []
-            cts = storage.all(City)
-            for k, c in cts:
-                if c.state_id == self.id:
-                    all_cities.append(c)
-            return all_cities
+            """getter for list of city instances related to the state"""
+            city_list = []
+            all_cities = storage.all(City)
+            for city in all_cities.values():
+                if city.state_id == self.id:
+                    city_list.append(city)
+            return city_list

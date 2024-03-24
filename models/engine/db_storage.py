@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"good file to doc"
+"""good file to doc"""
+
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -71,5 +72,5 @@ class DBStorage:
         self.__session = Sess
 
     def close(self):
-        "close"
+        "close doc"
         self.__session.remove()

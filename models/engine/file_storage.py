@@ -68,5 +68,5 @@ class FileStorage:
             return
     
     def close(self):
-        "reload"
+        " doc for func"
         self.reload()
