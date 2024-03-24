@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template
-import os
-# from models import *
-# from models import storage
-
-# app = Flask(__name__, template_folder=os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates')))
+from models import *
+from models import storage
+from models.state import State
 app = Flask(__name__)
-@app.route('/', strict_slashes=False)
+@app.route('/states_list', strict_slashes=False)
 def states():
-    return render_template('7-states_list.html')
+    "return states"
+    states = []
+    states_dec = storage.all(State)
+    for st in states_dec.values():
+        states.append(st)
+    return render_template('7-states_list.html', states=states)
 
-# @app.teardown_appcontext
-# def close(exception):
-#     storage.close()
+@app.teardown_appcontext
+def close(exception):
+    "close"
+    storage.close()
 
 
 if __name__ == '__main__':
