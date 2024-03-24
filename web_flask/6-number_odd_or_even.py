@@ -2,7 +2,7 @@
 "intro to flask"
 
 from flask import Flask, render_template
-app = Flask('--name--')
+app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)

@@ -59,6 +59,9 @@ class DBStorage:
         "save changes"
         self.__session.commit()
 
+    def save_all(self,lis):
+        self.__session.add_all(lis)
+
     def delete(self, obj=None):
         "delete object from database"
         if obj:
