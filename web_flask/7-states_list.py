@@ -14,7 +14,8 @@ def states():
     states_dec = storage.all(State)
     for st in states_dec.values():
         states.append(st)
-    return render_template('7-states_list.html', states=states)
+    sorted_states = sorted(states, key=lambda x:x.name)
+    return render_template('7-states_list.html', states=sorted_states)
 
 
 @app.teardown_appcontext
@@ -24,4 +25,4 @@ def close(exception):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(debug=True, port='5000', host='0.0.0.0')
