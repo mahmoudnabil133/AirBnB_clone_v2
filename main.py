@@ -48,4 +48,4 @@ if __name__ == '__main__':
     all_states = models.storage.all(State)
     for state_id, state in all_states.items():
         for city in state.cities:
-            print("Find the city {} in the state {}".format(city.name, state.name))
+            print("Find the city {} in the state {}".format(city.name, state))
