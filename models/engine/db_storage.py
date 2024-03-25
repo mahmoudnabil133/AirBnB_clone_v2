@@ -59,7 +59,7 @@ class DBStorage:
         "save changes"
         self.__session.commit()
 
-    def save_all(self,lis):
+    def save_all(self, lis):
         self.__session.add_all(lis)
         self.__session.commit()
 
