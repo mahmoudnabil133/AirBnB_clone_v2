@@ -20,7 +20,9 @@ def states_cities(id=None):
             sorted_states = states[id]
         except Exception as e:
             pass
-    return render_template('9-states.html', states=sorted_states, id=id, dec=states)
+    return render_template(
+        '9-states.html', states=sorted_states, id=id, dec=states
+        )
 
 
 @app.teardown_appcontext
